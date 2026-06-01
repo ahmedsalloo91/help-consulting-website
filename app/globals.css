@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #071b3a;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #1557d6;
+  color: white;
+}
+
+.hex-clip {
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+.eyebrow {
+  @apply text-xs font-extrabold uppercase tracking-[0.22em] text-royal sm:text-sm;
+}
+
+.section-pad {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.premium-card {
+  @apply rounded-lg border border-slate-200/80 bg-white shadow-[0_18px_55px_rgba(7,27,58,0.07)];
+}
+
+.btn-primary {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-royal px-6 py-3 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(21,87,214,0.22)] transition hover:bg-navy focus:outline-none focus:ring-4 focus:ring-royal/20;
+}
+
+.btn-secondary {
+  @apply inline-flex min-h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-extrabold text-navy transition hover:border-royal hover:bg-skyline/60 hover:text-royal focus:outline-none focus:ring-4 focus:ring-royal/10;
+}
+
+.field {
+  @apply min-h-12 rounded-md border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-navy outline-none transition placeholder:text-graphite/40 focus:border-royal focus:ring-4 focus:ring-royal/10;
+}
