@@ -13,7 +13,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded px-3 py-2 text-sm font-bold text-graphite/78 transition hover:bg-white hover:text-royal"
+              className="nav-link rounded px-3 py-2 text-sm font-bold text-graphite/78 transition hover:bg-white hover:text-royal"
             >
               {item.label}
             </Link>
