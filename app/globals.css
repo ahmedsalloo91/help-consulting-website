@@ -59,9 +59,23 @@ body {
 }
 
 .premium-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: rgba(21, 87, 214, 0.24);
-  box-shadow: 0 28px 80px rgba(7, 27, 58, 0.12);
+  box-shadow: 0 34px 90px rgba(7, 27, 58, 0.14);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  width: 100%;
+  height: 3px;
+  background: #1557d6;
+  box-shadow: 0 0 18px rgba(21, 87, 214, 0.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 120ms linear;
 }
 
 .motion-ready main section:not(:first-child),
@@ -69,12 +83,14 @@ body {
 .motion-ready main article,
 .motion-ready .motion-reveal {
   opacity: 0;
-  transform: translateY(28px);
+  filter: blur(10px);
+  transform: translateY(56px) scale(0.985);
   transition:
-    opacity 800ms ease,
-    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 500ms ease,
-    border-color 500ms ease;
+    opacity 1000ms ease,
+    filter 1000ms ease,
+    transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 600ms ease,
+    border-color 600ms ease;
   transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -83,11 +99,12 @@ body {
 .motion-ready main article.is-visible,
 .motion-ready .motion-reveal.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
 .motion-ready .premium-card.is-visible:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -102,5 +119,9 @@ body {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .scroll-progress {
+    display: none;
   }
 }
