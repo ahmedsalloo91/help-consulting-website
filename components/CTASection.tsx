@@ -19,10 +19,7 @@ export function CTASection({
           <div className="relative max-w-3xl">
             <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{title}</h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-white/80">{description}</p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-extrabold text-navy transition hover:bg-skyline focus:outline-none focus:ring-4 focus:ring-white/30"
-            >
+            <Link href="/contact" className="btn-secondary mt-8 border-white bg-white">
               Book a Consultation <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>

@@ -9,8 +9,8 @@ type ServiceCardProps = {
 export function ServiceCard({ title, description, icon: Icon }: ServiceCardProps) {
   return (
     <article className="group premium-card relative min-h-72 overflow-hidden p-6 sm:p-7">
-      <div className="absolute right-0 top-0 h-20 w-20 translate-x-8 -translate-y-8 bg-skyline hex-clip" />
-      <div className="hex-clip grid h-14 w-14 place-items-center bg-skyline text-royal ring-8 ring-skyline/40 transition group-hover:bg-royal group-hover:text-white">
+      <div className="absolute right-0 top-0 h-20 w-20 translate-x-8 -translate-y-8 bg-skyline hex-clip transition duration-500 group-hover:scale-110 group-hover:bg-royal/10" />
+      <div className="hex-clip grid h-14 w-14 place-items-center bg-skyline text-royal ring-8 ring-skyline/40 transition duration-500 group-hover:bg-royal group-hover:text-white group-hover:ring-royal/10">
         <Icon className="h-6 w-6" aria-hidden />
       </div>
       <h3 className="relative mt-8 text-xl font-black leading-snug tracking-tight text-navy">{title}</h3>

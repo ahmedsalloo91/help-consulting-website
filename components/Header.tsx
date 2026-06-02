@@ -5,7 +5,7 @@ import { Logo } from "@/components/Logo";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl transition-shadow duration-300">
       <div className="section-shell flex h-[76px] items-center justify-between">
         <Logo />
         <nav className="hidden items-center gap-1 rounded-md border border-slate-200 bg-slate-50/70 p-1 lg:flex" aria-label="Primary navigation">

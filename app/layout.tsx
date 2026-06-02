@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MotionLayer } from "@/components/MotionLayer";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <MotionLayer />
         <Header />
         <main>{children}</main>
         <Footer />

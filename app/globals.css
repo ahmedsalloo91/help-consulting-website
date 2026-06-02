@@ -43,17 +43,64 @@ body {
 }
 
 .premium-card {
-  @apply rounded-lg border border-slate-200/80 bg-white shadow-[0_18px_55px_rgba(7,27,58,0.07)];
+  @apply rounded-lg border border-slate-200/80 bg-white shadow-[0_18px_55px_rgba(7,27,58,0.07)] transition-[transform,box-shadow,border-color] duration-500 ease-out;
 }
 
 .btn-primary {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-royal px-6 py-3 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(21,87,214,0.22)] transition hover:bg-navy focus:outline-none focus:ring-4 focus:ring-royal/20;
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-royal px-6 py-3 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(21,87,214,0.22)] transition-[transform,background-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:bg-navy hover:shadow-[0_18px_42px_rgba(7,27,58,0.24)] focus:outline-none focus:ring-4 focus:ring-royal/20;
 }
 
 .btn-secondary {
-  @apply inline-flex min-h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-extrabold text-navy transition hover:border-royal hover:bg-skyline/60 hover:text-royal focus:outline-none focus:ring-4 focus:ring-royal/10;
+  @apply inline-flex min-h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-extrabold text-navy transition-[transform,border-color,background-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-royal hover:bg-skyline/60 hover:text-royal focus:outline-none focus:ring-4 focus:ring-royal/10;
 }
 
 .field {
   @apply min-h-12 rounded-md border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-navy outline-none transition placeholder:text-graphite/40 focus:border-royal focus:ring-4 focus:ring-royal/10;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(21, 87, 214, 0.24);
+  box-shadow: 0 28px 80px rgba(7, 27, 58, 0.12);
+}
+
+.motion-ready main section:not(:first-child),
+.motion-ready .premium-card,
+.motion-ready main article,
+.motion-ready .motion-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease,
+    border-color 500ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.motion-ready main section:not(:first-child).is-visible,
+.motion-ready .premium-card.is-visible,
+.motion-ready main article.is-visible,
+.motion-ready .motion-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready .premium-card.is-visible:hover {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }
