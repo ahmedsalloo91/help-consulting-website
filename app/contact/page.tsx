@@ -25,7 +25,7 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 shrink-0 text-white" /> info@consultations.help
               </span>
               <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                <Phone className="h-5 w-5 shrink-0 text-white" /> +964 000 000 0000
+                <Phone className="h-5 w-5 shrink-0 text-white" /> +9647702750447
               </span>
             </div>
             <div className="relative mt-10 border-t border-white/10 pt-6">
