@@ -7,8 +7,8 @@ export default function TeamPage() {
     <>
       <PageHero
         eyebrow="Team"
-        title="A focused team across strategy, technology, HR, and legal support."
-        description="HELP brings together complementary experience so businesses can address management, systems, people, market, and legal needs in one consulting relationship."
+        title="A focused consulting team across core business functions."
+        description="HELP brings together complementary capabilities so businesses can address management, systems, people, market, and legal needs in one consulting relationship."
       />
       <section className="section-pad">
         <div className="section-shell grid gap-5 md:grid-cols-2 lg:grid-cols-4">

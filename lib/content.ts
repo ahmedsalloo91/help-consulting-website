@@ -108,24 +108,24 @@ export const caseStudies = [
 
 export const team = [
   {
-    name: "Ahmed Hussein",
-    role: "Strategy & Business Consultant",
-    bio: "Strategy, marketing, sales, management, and finance-oriented consulting for growing companies."
+    name: "Strategy Consulting",
+    role: "Business Transformation",
+    bio: "Strategy, sales, management, governance, and finance-oriented consulting for growing companies."
   },
   {
-    name: "Omar Ali",
-    role: "Technology & Marketing Consultant",
-    bio: "Marketing, technology, programming, design, dashboards, automation, and AI tools."
+    name: "Technology & Marketing",
+    role: "Digital Systems",
+    bio: "Marketing direction, technology solutions, dashboards, automation, design, and AI tools."
   },
   {
-    name: "Amna Emad",
-    role: "HR Consultant",
-    bio: "HR, recruitment, SOPs, HR systems, people development, and organizational structure."
+    name: "HR Consulting",
+    role: "People Systems",
+    bio: "Recruitment, SOPs, HR systems, people development, salary structures, and organizational design."
   },
   {
-    name: "Dalia Srour",
-    role: "Legal Consultant",
-    bio: "Legal consulting with banking and civil law experience for business and operational needs."
+    name: "Legal Support",
+    role: "Business Advisory",
+    bio: "Practical legal support for contracts, compliance, banking matters, and business operations."
   }
 ];
 
