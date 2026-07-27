@@ -134,35 +134,6 @@ body {
   transition: transform 120ms linear;
 }
 
-.motion-ready main section:not(:first-child),
-.motion-ready .premium-card,
-.motion-ready main article,
-.motion-ready .motion-reveal {
-  opacity: 0;
-  filter: blur(14px);
-  transform: translateY(76px) scale(0.965);
-  transition:
-    opacity 1150ms ease,
-    filter 1150ms ease,
-    transform 1150ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms ease,
-    border-color 600ms ease;
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.motion-ready main section:not(:first-child).is-visible,
-.motion-ready .premium-card.is-visible,
-.motion-ready main article.is-visible,
-.motion-ready .motion-reveal.is-visible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-}
-
-.motion-ready .premium-card.is-visible:hover {
-  transform: translateY(-10px) scale(1.012);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
