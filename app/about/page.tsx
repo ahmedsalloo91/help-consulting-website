@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -18,11 +19,11 @@ export default function AboutPage() {
             description="A growing business often reaches a point where informal decisions, unclear roles, weak reporting, and scattered tools start slowing momentum. HELP works across strategy, HR, finance, marketing, legal, and technology to create professional systems that can be managed, measured, and improved."
           />
           <div className="premium-card p-8 lg:p-10">
-            <h2 className="text-2xl font-black text-navy">What makes the work practical</h2>
+            <h2 className="text-2xl font-black text-navy"><T>{"What makes the work practical"}</T></h2>
             <div className="mt-6 grid gap-5 text-sm leading-7 text-graphite/72">
-              <p>We start with the real operating model, not a generic template.</p>
-              <p>We turn recommendations into documents, workflows, dashboards, and management routines.</p>
-              <p>We support SMEs, family businesses, and active operators that need structure without unnecessary complexity.</p>
+              <p><T>{"We start with the real operating model, not a generic template."}</T></p>
+              <p><T>{"We turn recommendations into documents, workflows, dashboards, and management routines."}</T></p>
+              <p><T>{"We support SMEs, family businesses, and active operators that need structure without unnecessary complexity."}</T></p>
             </div>
           </div>
         </div>
