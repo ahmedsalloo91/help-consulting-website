@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import type { LucideIcon } from "lucide-react";
 
 type ServiceCardProps = {
@@ -13,8 +14,8 @@ export function ServiceCard({ title, description, icon: Icon }: ServiceCardProps
       <div className="hex-clip grid h-14 w-14 place-items-center bg-skyline text-royal ring-8 ring-skyline/40 transition duration-500 group-hover:bg-royal group-hover:text-white group-hover:ring-royal/10">
         <Icon className="h-6 w-6" aria-hidden />
       </div>
-      <h3 className="relative mt-8 text-xl font-black leading-snug tracking-tight text-navy">{title}</h3>
-      <p className="relative mt-4 text-sm leading-7 text-graphite/72">{description}</p>
+      <h3 className="relative mt-8 text-xl font-black leading-snug tracking-tight text-navy"><T>{title}</T></h3>
+      <p className="relative mt-4 text-sm leading-7 text-graphite/72"><T>{description}</T></p>
     </article>
   );
 }

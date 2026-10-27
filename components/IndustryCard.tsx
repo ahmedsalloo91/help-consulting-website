@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import type { LucideIcon } from "lucide-react";
 
 type IndustryCardProps = {
@@ -13,8 +14,8 @@ export function IndustryCard({ title, description, icon: Icon }: IndustryCardPro
         <Icon className="h-5 w-5" aria-hidden />
       </div>
       <div>
-        <h3 className="text-lg font-black leading-snug text-navy">{title}</h3>
-        <p className="mt-2 text-sm leading-7 text-graphite/72">{description}</p>
+        <h3 className="text-lg font-black leading-snug text-navy"><T>{title}</T></h3>
+        <p className="mt-2 text-sm leading-7 text-graphite/72"><T>{description}</T></p>
       </div>
     </article>
   );
