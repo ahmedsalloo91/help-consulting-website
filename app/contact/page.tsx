@@ -18,6 +18,7 @@ export default function ContactPage() {
               <p className="flex items-center gap-3"><MapPin size={19} aria-hidden /><T>Iraq</T></p>
               <a className="flex items-center gap-3 hover:underline" href="mailto:info@consultations.help"><Mail size={19} className="shrink-0" aria-hidden /><bdi>info@consultations.help</bdi></a>
               <a className="flex items-center gap-3 hover:underline" href="tel:+9647702750447"><Phone size={19} aria-hidden /><bdi>+9647702750447</bdi></a>
+              <a className="flex items-center gap-3 hover:underline" href="tel:+9647802454247"><Phone size={19} aria-hidden /><bdi>+9647802454247</bdi></a>
             </div>
             <div className="mt-8 border-t border-white/20 pt-6">
               <h3 className="font-semibold"><T>General enquiries</T></h3>
