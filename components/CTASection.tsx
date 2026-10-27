@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -17,10 +18,9 @@ export function CTASection({
           <div className="absolute -right-10 -top-12 h-44 w-44 border-[30px] border-white/15 hex-clip" />
           <div className="absolute -bottom-16 right-32 h-32 w-32 border-[22px] border-white/10 hex-clip" />
           <div className="relative max-w-3xl">
-            <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{title}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-white/80">{description}</p>
-            <Link href="/contact" className="btn-secondary mt-8 border-white bg-white">
-              Book a Consultation <ArrowRight className="h-4 w-4" aria-hidden />
+            <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl"><T>{title}</T></h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-white/80"><T>{description}</T></p>
+            <Link href="/contact#booking" className="btn-secondary mt-8 border-white bg-white"><T>{"Book a Consultation"}</T><ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
         </div>

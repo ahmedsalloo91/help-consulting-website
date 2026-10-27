@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -23,9 +24,7 @@ export function Logo({ inverse = false }: LogoProps) {
           className={`block text-xs font-semibold uppercase tracking-[0.16em] ${
             inverse ? "text-white/60" : "text-graphite/70"
           }`}
-        >
-          Consulting
-        </span>
+        ><T>{"Consulting"}</T></span>
       </span>
     </Link>
   );

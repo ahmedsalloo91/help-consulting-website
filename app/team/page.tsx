@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/PageHero";
 import { team } from "@/lib/content";
@@ -17,9 +18,9 @@ export default function TeamPage() {
               <div className="hex-clip grid h-20 w-20 place-items-center bg-skyline text-2xl font-black text-royal ring-8 ring-white">
                 {member.name.charAt(0)}
               </div>
-              <h2 className="mt-6 text-2xl font-black text-navy">{member.name}</h2>
-              <p className="mt-2 text-sm font-bold text-royal">{member.role}</p>
-              <p className="mt-5 text-sm leading-7 text-graphite/72">{member.bio}</p>
+              <h2 className="mt-6 text-2xl font-black text-navy"><T>{member.name}</T></h2>
+              <p className="mt-2 text-sm font-bold text-royal"><T>{member.role}</T></p>
+              <p className="mt-5 text-sm leading-7 text-graphite/72"><T>{member.bio}</T></p>
             </article>
           ))}
         </div>

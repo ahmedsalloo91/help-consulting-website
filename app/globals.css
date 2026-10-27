@@ -6,6 +6,28 @@
   color-scheme: light;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid #dce3ed;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.language-switch:hover { background: #eaf1ff; }
+.language-switch:focus-visible { outline: 3px solid #1557d6; outline-offset: 3px; }
+[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.5; }
+[dir="rtl"] .eyebrow, [dir="rtl"] .uppercase { letter-spacing: 0; }
+.section-shell > *, .field { min-width: 0; }
+#booking { scroll-margin-top: 100px; }
+[dir="rtl"] .btn-primary svg, [dir="rtl"] .btn-secondary svg { transform: scaleX(-1); }
+
 * {
   box-sizing: border-box;
 }

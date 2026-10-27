@@ -1,3 +1,4 @@
+import { T } from "@/components/LanguageProvider";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
@@ -15,21 +16,13 @@ export default function HomePage() {
         <div className="absolute right-[10%] top-24 h-40 w-40 border-[28px] border-royal/10 hex-clip" />
         <div className="section-shell relative grid min-h-[calc(100vh-76px)] items-center gap-12 py-14 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:py-20">
           <div>
-            <p className="eyebrow">HELP Consulting</p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-navy sm:text-5xl lg:text-6xl">
-              Helping Businesses Move From Personal Effort to Professional Systems
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-graphite/75 sm:text-xl">
-              HELP Consulting supports growing businesses with strategy, HR, finance, marketing, legal,
-              and technology solutions.
-            </p>
+            <p className="eyebrow"><T>{"HELP Consulting"}</T></p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-navy sm:text-5xl lg:text-6xl"><T>{"Helping Businesses Move From Personal Effort to Professional Systems"}</T></h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-graphite/75 sm:text-xl"><T>{"HELP Consulting supports growing businesses with strategy, HR, finance, marketing, legal, and technology solutions."}</T></p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary">
-                Book a Consultation <ArrowRight className="h-4 w-4" aria-hidden />
+              <Link href="/contact#booking" className="btn-primary"><T>{"Book a Consultation"}</T><ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
-              <Link href="/services" className="btn-secondary">
-                Our Services
-              </Link>
+              <Link href="/services" className="btn-secondary"><T>{"Our Services"}</T></Link>
             </div>
           </div>
           <div className="relative pb-8">
@@ -43,7 +36,7 @@ export default function HomePage() {
                 >
                   <div className="hex-clip mb-8 h-12 w-12 bg-royal/15 ring-8 ring-skyline/50" />
                   <p className="text-2xl font-black text-navy">0{index + 1}</p>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-graphite/60">{label}</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-graphite/60"><T>{label}</T></p>
                 </div>
               ))}
             </div>
@@ -62,7 +55,7 @@ export default function HomePage() {
             {["Clear strategy", "Defined roles", "Financial visibility", "Technology enablement"].map((item) => (
               <div key={item} className="premium-card flex min-h-24 gap-3 p-5">
                 <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-royal" aria-hidden />
-                <p className="text-base font-black text-navy">{item}</p>
+                <p className="text-base font-black text-navy"><T>{item}</T></p>
               </div>
             ))}
           </div>
@@ -110,8 +103,8 @@ export default function HomePage() {
             {workSteps.map((step, index) => (
               <article key={step.title} className="rounded-lg border border-white/12 bg-white/[0.07] p-6">
                 <span className="text-sm font-black text-white/52">0{index + 1}</span>
-                <h3 className="mt-5 text-xl font-black text-white">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/70">{step.description}</p>
+                <h3 className="mt-5 text-xl font-black text-white"><T>{step.title}</T></h3>
+                <p className="mt-3 text-sm leading-7 text-white/70"><T>{step.description}</T></p>
               </article>
             ))}
           </div>
@@ -141,9 +134,9 @@ export default function HomePage() {
                 <div className="hex-clip grid h-16 w-16 place-items-center bg-skyline text-xl font-black text-royal ring-8 ring-white">
                   {member.name.charAt(0)}
                 </div>
-                <h3 className="mt-6 text-xl font-black text-navy">{member.name}</h3>
-                <p className="mt-1 text-sm font-extrabold text-royal">{member.role}</p>
-                <p className="mt-4 text-sm leading-7 text-graphite/72">{member.bio}</p>
+                <h3 className="mt-6 text-xl font-black text-navy"><T>{member.name}</T></h3>
+                <p className="mt-1 text-sm font-extrabold text-royal"><T>{member.role}</T></p>
+                <p className="mt-4 text-sm leading-7 text-graphite/72"><T>{member.bio}</T></p>
               </article>
             ))}
           </div>
