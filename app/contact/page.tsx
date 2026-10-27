@@ -1,88 +1,38 @@
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, CalendarDays, Clock3, ExternalLink } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { T } from "@/components/LanguageProvider";
+import { BookingCalendar } from "@/components/BookingCalendar";
+import { bookingUrl } from "@/lib/booking";
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Contact"
-        title="Book a consultation with HELP Consulting."
-        description="Share your business need and the team will help identify the first priorities for a practical consulting engagement."
-      />
+      <PageHero eyebrow="Contact" title="Book a consultation with HELP Consulting."
+        description="Share your business need and the team will help identify the first priorities for a practical consulting engagement." />
       <section className="section-pad">
-        <div className="section-shell grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-10">
-          <aside className="relative overflow-hidden rounded-lg bg-navy p-7 text-white shadow-[0_22px_70px_rgba(7,27,58,0.16)] sm:p-8 lg:p-10">
-            <div className="absolute -right-12 -top-12 h-40 w-40 border-[28px] border-white/10 hex-clip" />
-            <h2 className="relative text-2xl font-black">Contact Details</h2>
-            <p className="mt-4 text-sm leading-7 text-white/72">
-              Tell us where the business needs more structure, and we will help identify the first consulting priorities.
-            </p>
-            <div className="relative mt-8 grid gap-3 text-sm text-white/76">
-              <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                <MapPin className="h-5 w-5 shrink-0 text-white" /> Iraq
-              </span>
-              <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                <Mail className="h-5 w-5 shrink-0 text-white" /> info@consultations.help
-              </span>
-              <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                <Phone className="h-5 w-5 shrink-0 text-white" /> +9647702750447
-              </span>
+        <div className="section-shell grid items-start gap-8 lg:grid-cols-[0.65fr_1.35fr]">
+          <aside className="rounded-lg bg-navy p-6 text-white sm:p-8">
+            <h2 className="text-2xl font-bold"><T>Contact Details</T></h2>
+            <p className="mt-4 text-sm leading-7 text-white/80"><T>Tell us where the business needs more structure, and we will help identify the first consulting priorities.</T></p>
+            <div className="mt-7 grid gap-5 text-sm">
+              <p className="flex items-center gap-3"><MapPin size={19} aria-hidden /><T>Iraq</T></p>
+              <a className="flex items-center gap-3 hover:underline" href="mailto:info@consultations.help"><Mail size={19} className="shrink-0" aria-hidden /><bdi>info@consultations.help</bdi></a>
+              <a className="flex items-center gap-3 hover:underline" href="tel:+9647702750447"><Phone size={19} aria-hidden /><bdi>+9647702750447</bdi></a>
             </div>
-            <div className="relative mt-10 border-t border-white/10 pt-6">
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/45">Engagement Focus</p>
-              <p className="mt-3 text-sm leading-7 text-white/72">
-                Strategy, people, finance, marketing, legal, and technology systems for growing companies.
-              </p>
+            <div className="mt-8 border-t border-white/20 pt-6">
+              <h3 className="font-semibold"><T>General enquiries</T></h3>
+              <p className="mt-3 text-sm leading-7 text-white/80"><T>For other questions, email our team.</T></p>
             </div>
           </aside>
-          <form className="premium-card p-6 sm:p-8 lg:p-10">
-            <div className="mb-8">
-              <p className="eyebrow">Inquiry Form</p>
-              <h2 className="mt-3 text-2xl font-black tracking-tight text-navy sm:text-3xl">Tell us what needs structure.</h2>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="grid gap-2 text-sm font-bold text-navy">
-                Full Name
-                <input className="field" placeholder="Your name" />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-navy">
-                Company
-                <input className="field" placeholder="Company name" />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-navy">
-                Email
-                <input type="email" className="field" placeholder="you@example.com" />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-navy">
-                Phone
-                <input className="field" placeholder="+964" />
-              </label>
-            </div>
-            <label className="mt-5 grid gap-2 text-sm font-bold text-navy">
-              Consulting Need
-              <select className="field" defaultValue="">
-                <option value="" disabled>
-                  Select a service
-                </option>
-                <option>Strategy & Business Transformation</option>
-                <option>HR Consulting</option>
-                <option>Finance & Economic Advisory</option>
-                <option>Marketing & PR</option>
-                <option>Legal Support</option>
-                <option>Tech Solutions</option>
-              </select>
-            </label>
-            <label className="mt-5 grid gap-2 text-sm font-bold text-navy">
-              Message
-              <textarea className="field min-h-40 resize-y" placeholder="What do you want to improve or systemize?" />
-            </label>
-            <button
-              type="button"
-              className="btn-primary mt-7 w-full sm:w-auto"
-            >
-              Submit Inquiry <Send className="h-4 w-4" aria-hidden />
-            </button>
-          </form>
+          <div id="booking" className="min-w-0">
+            <p className="eyebrow"><T>Book your 30-minute consultation</T></p>
+            <h2 className="mt-3 text-3xl font-bold"><T>Choose a day and time</T></h2>
+            <p className="mt-5 flex items-start gap-2 text-sm leading-7 text-graphite"><CalendarDays className="mt-1 shrink-0" size={18} aria-hidden /><T>Saturday–Thursday · 10:00 AM–7:00 PM · Baghdad time</T></p>
+            <p className="mt-2 flex items-start gap-2 text-sm leading-7 text-graphite"><Clock3 className="mt-1 shrink-0" size={18} aria-hidden /><T>Last appointment starts at 6:30 PM. Fridays are unavailable.</T></p>
+            <p className="my-5 text-sm leading-7 text-graphite"><T>Your appointment is confirmed after you complete the booking in Calendly. A Google Meet link will be included in your confirmation.</T></p>
+            <BookingCalendar />
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary mt-5 gap-2"><T>Open booking calendar</T><ExternalLink size={17} aria-hidden /></a>
+          </div>
         </div>
       </section>
     </>
