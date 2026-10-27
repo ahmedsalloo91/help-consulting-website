@@ -20,6 +20,9 @@ export function Footer() {
             <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-2">
               <Phone className="h-4 w-4 shrink-0 text-white" /> <a href="tel:+9647702750447"><bdi>+9647702750447</bdi></a>
             </span>
+            <span className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 px-3 py-2">
+              <Phone className="h-4 w-4 shrink-0 text-white" /> <a href="tel:+9647802454247"><bdi>+9647802454247</bdi></a>
+            </span>
           </div>
         </div>
         <div>
