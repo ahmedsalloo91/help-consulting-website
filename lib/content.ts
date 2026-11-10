@@ -20,6 +20,7 @@ export const navItems = [
   { href: "/industries", label: "Industries" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/team", label: "Team" },
+  { href: "/helpcast", label: "HELPCAST" },
   { href: "/contact", label: "Contact" }
 ];
 
