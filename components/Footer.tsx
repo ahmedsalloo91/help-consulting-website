@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navItems, services } from "@/lib/content";
 import { Logo } from "@/components/Logo";
+import { MarketingPreferences } from "@/components/MarketingConsent";
 
 export function Footer() {
   return (
@@ -50,6 +51,7 @@ export function Footer() {
         <div className="section-shell flex flex-col gap-2 text-xs text-white/56 sm:flex-row sm:items-center sm:justify-between">
           <p><T>{"© 2026 HELP Consulting. All rights reserved."}</T></p>
           <p><T>{"Professional systems for growing businesses."}</T></p>
+          <MarketingPreferences />
         </div>
       </div>
     </footer>
