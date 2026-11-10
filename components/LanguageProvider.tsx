@@ -1,20 +1,34 @@
 "use client";
 
-import { createContext, useContext } from "react";
-import { Languages } from "lucide-react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { arabic } from "@/lib/arabic";
+import { helpcastArabic } from "@/lib/helpcast-copy";
+import { usePathname } from "next/navigation";
 
 export type Locale = "en" | "ar";
-const LanguageContext = createContext<Locale>("en");
+const LanguageContext = createContext<{ locale: Locale; setLocale: (locale: Locale) => void }>({ locale: "en", setLocale: () => {} });
 
 export function LanguageProvider({ locale, children }: { locale: Locale; children: React.ReactNode }) {
-  return <LanguageContext.Provider value={locale}>{children}</LanguageContext.Provider>;
+  const pathname = usePathname();
+  const [generalLocale, setGeneralLocale] = useState(locale);
+  const [helpcastLocale, setHelpcastLocale] = useState<Locale>("ar");
+  const current = pathname?.startsWith("/helpcast") ? helpcastLocale : generalLocale;
+  useEffect(() => {
+    document.documentElement.lang = current;
+    document.documentElement.dir = current === "ar" ? "rtl" : "ltr";
+  }, [current]);
+  const setLocale = (next: Locale) => {
+    document.cookie = `help-language=${next};path=/;max-age=31536000;SameSite=Lax`;
+    setGeneralLocale(next);
+    setHelpcastLocale(next);
+  };
+  return <LanguageContext.Provider value={{ locale: current, setLocale }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {
-  const locale = useContext(LanguageContext);
-  const t = (text: string) => locale === "ar" ? arabic[text.replace(/\s+/g, " ").trim()] ?? text : text;
-  return { locale, t };
+  const { locale, setLocale } = useContext(LanguageContext);
+  const t = (text: string) => locale === "ar" ? helpcastArabic[text.replace(/\s+/g, " ").trim()] ?? arabic[text.replace(/\s+/g, " ").trim()] ?? text : text;
+  return { locale, setLocale, t };
 }
 
 export function T({ children }: { children: string }) {
@@ -23,15 +37,12 @@ export function T({ children }: { children: string }) {
 }
 
 export function LanguageSwitch() {
-  const { locale } = useLanguage();
-  const next = locale === "en" ? "ar" : "en";
+  const { locale, setLocale } = useLanguage();
   return (
-    <button type="button" className="language-switch" lang={next} aria-label={next === "ar" ? "التبديل إلى العربية" : "Switch to English"}
-      onClick={() => {
-        document.cookie = `help-language=${next};path=/;max-age=31536000;SameSite=Lax`;
-        window.location.reload();
-      }}>
-      <Languages size={18} aria-hidden />{next === "ar" ? "العربية" : "English"}
-    </button>
+    <div className="language-switch" dir="ltr" role="group" aria-label={locale === "ar" ? "لغة الموقع" : "Website language"}>
+      <button type="button" lang="ar" aria-label="العربية" aria-pressed={locale === "ar"} onClick={() => setLocale("ar")}>AR</button>
+      <span aria-hidden>|</span>
+      <button type="button" lang="en" aria-label="English" aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
+    </div>
   );
 }
