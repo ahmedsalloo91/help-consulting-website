@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { randomUUID } from "node:crypto";
+import nodemailer from "nodemailer";
 import { NextRequest } from "next/server";
 import { ApplicationValues, validateApplication } from "../lib/helpcast-validation";
 import { applicationEmail, sendApplicationEmail, HELPCAST_MAILBOX } from "../lib/helpcast-mail";
@@ -66,4 +67,45 @@ test("endpoint rejects unsafe requests and never reports success without SMTP co
   delete process.env.HELPCAST_SMTP_PASSWORD;
   try { assert.equal((await send({ ...application, submission_id: randomUUID(), language: "ar" })).status, 503); }
   finally { if (old) process.env.HELPCAST_SMTP_PASSWORD = old; }
+});
+
+test("success and duplicate responses share an opaque event ID, failures have none", async (context) => {
+  const password = process.env.HELPCAST_SMTP_PASSWORD;
+  const secret = process.env.HELPCAST_RATE_LIMIT_SECRET;
+  process.env.HELPCAST_SMTP_PASSWORD = "test-only-not-a-real-password";
+  process.env.HELPCAST_RATE_LIMIT_SECRET = "test-only-secret".repeat(4);
+  let deliveries = 0;
+  let fail = false;
+  context.mock.method(nodemailer, "createTransport", () => ({ sendMail: async () => {
+    deliveries++;
+    if (fail) throw new Error("test transport unavailable");
+    return { accepted: [HELPCAST_MAILBOX] };
+  } }));
+  context.mock.method(console, "error", () => {});
+  const id = randomUUID();
+  const send = (data: object) => POST(new NextRequest("http://localhost:3100/api/helpcast", { method: "POST", headers: { origin: "http://localhost:3100", "content-type": "application/json" }, body: JSON.stringify({ ...application, submission_id: id, language: "ar", ...data }) }));
+  try {
+    const first = await send({});
+    assert.equal(first.status, 201);
+    const result = await first.json();
+    assert.deepEqual(result, { ok: true, event_id: `helpcast_${id}` });
+    const duplicate = await send({});
+    assert.equal(duplicate.status, 200);
+    assert.deepEqual(await duplicate.json(), result);
+    assert.equal(deliveries, 1);
+    const conflict = await send({ full_name: "Changed name" });
+    assert.equal(conflict.status, 409);
+    assert.equal((await conflict.json()).event_id, undefined);
+    const invalid = await send({ phone: "invalid" });
+    assert.equal(invalid.status, 422);
+    assert.equal((await invalid.json()).event_id, undefined);
+    fail = true;
+    const failure = await send({ submission_id: randomUUID() });
+    assert.equal(failure.status, 503);
+    assert.equal((await failure.json()).event_id, undefined);
+  } finally {
+    if (password === undefined) delete process.env.HELPCAST_SMTP_PASSWORD; else process.env.HELPCAST_SMTP_PASSWORD = password;
+    if (secret === undefined) delete process.env.HELPCAST_RATE_LIMIT_SECRET; else process.env.HELPCAST_RATE_LIMIT_SECRET = secret;
+    context.mock.restoreAll();
+  }
 });
