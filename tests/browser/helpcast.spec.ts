@@ -4,6 +4,7 @@ for (const width of [320, 390, 1440]) {
   test(`bilingual form, preserved input and feedback at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto("/helpcast");
+    await page.getByRole("button", { name: "رفض التتبّع التسويقي", exact: true }).click();
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("قصتك تستحق أن تُروى");
     await expect(page.getByRole("button", { name: "العربية", exact: true })).toBeVisible();
