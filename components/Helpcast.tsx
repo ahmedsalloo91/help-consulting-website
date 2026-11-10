@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, CheckCircle2, LoaderCircle, Mic2 } from "lucide-react";
 import { T, useLanguage } from "@/components/LanguageProvider";
 import { ApplicationValues, blankApplication, FieldErrors, sectors, validateApplication } from "@/lib/helpcast-validation";
+import { trackHelpcastLead } from "@/lib/meta-pixel";
 
 const topics = ["Strategy & business development", "Leadership & people", "Marketing, sales & growth", "Business environment & challenges", "Digital transformation", "Entrepreneurship"];
 const labels = {
@@ -55,6 +56,7 @@ export function Helpcast() {
       const result = await response.json();
       if (response.ok && result.ok) {
         setState("success");
+        trackHelpcastLead(result.event_id);
         requestAnimationFrame(() => success.current?.focus());
       } else {
         setErrors(result.errors ?? {});

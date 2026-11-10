@@ -38,7 +38,8 @@ export async function POST(request: NextRequest) {
     const result = await deliverOnce(data.submission_id, privateDigest(JSON.stringify(values)), () => sendApplicationEmail(values, data.submission_id, data.language));
     if (result === "conflict") return reply({ code: "invalid" }, 409);
     if (result === "busy") return reply({ code: "unavailable" }, 503);
-    return reply({ ok: true }, result === "sent" ? 201 : 200);
+    // Stable across unchanged retries, only returned after SMTP accepts delivery.
+    return reply({ ok: true, event_id: `helpcast_${data.submission_id}` }, result === "sent" ? 201 : 200);
   } catch {
     // Never log applicant fields, mail bodies, credentials or SMTP errors.
     console.error("HELPCAST email delivery failed");
