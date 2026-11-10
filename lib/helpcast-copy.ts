@@ -1,4 +1,12 @@
 export const helpcastArabic: Record<string, string> = {
+  "Cookie preferences": "تفضيلات ملفات الارتباط",
+  "Marketing cookies": "ملفات الارتباط التسويقية",
+  "With your permission, Meta Pixel measures page visits and successful HELPCAST applications to improve our advertising. It may use cookies and online identifiers. We do not send your application answers to Meta. Rejecting does not affect your application.": "بموافقتك، يقيس Meta Pixel زيارات الصفحات وطلبات HELPCAST الناجحة لتحسين إعلاناتنا، وقد يستخدم ملفات الارتباط ومعرّفات الإنترنت. لا نرسل إجابات طلبك إلى Meta. الرفض لا يؤثر على تقديمك.",
+  "Reject marketing": "رفض التتبّع التسويقي",
+  "Accept marketing": "قبول التتبّع التسويقي",
+  "Your browser privacy signal is respected. Marketing tracking is disabled.": "نحترم إشارة الخصوصية من متصفحك. التتبّع التسويقي معطّل.",
+  "Optional marketing tracking": "التتبّع التسويقي الاختياري",
+  "Only if you accept marketing cookies, Meta Pixel measures page visits and successful applications. Meta may receive browser and device information, page URLs, online identifiers and an anonymous application event reference, but we do not send your name, phone number, email or application answers as event parameters. Marketing consent is separate from permission to contact you about your application. You can reject or withdraw it using Cookie preferences in the footer without affecting your application. Your preference is stored in this browser; event references used to prevent duplicate conversions are kept for the browser session.": "فقط عند قبول ملفات الارتباط التسويقية، يقيس Meta Pixel زيارات الصفحات والطلبات الناجحة. قد تستلم Meta معلومات المتصفح والجهاز وعناوين الصفحات ومعرّفات الإنترنت ومرجع حدث للطلب لا يحتوي بياناتك الشخصية، لكننا لا نرسل اسمك أو هاتفك أو بريدك أو إجاباتك كمعاملات للحدث. الموافقة التسويقية منفصلة عن موافقتك على التواصل بشأن الطلب. يمكنك رفضها أو سحبها من تفضيلات ملفات الارتباط أسفل الصفحة دون التأثير على طلبك. تُحفظ تفضيلاتك في هذا المتصفح، وتُحفظ مراجع منع تكرار التحويلات لمدة جلسة المتصفح.",
   "A business podcast by HELP Consulting.": "بودكاست أعمال من HELP للاستشارات.",
   "HELPCAST": "HELPCAST",
   "Founding Season": "الموسم التأسيسي",
