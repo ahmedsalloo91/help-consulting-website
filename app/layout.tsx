@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { MotionLayer } from "@/components/MotionLayer";
 import { cookies, headers } from "next/headers";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { MarketingConsentBanner } from "@/components/MarketingConsent";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -50,6 +51,7 @@ export default async function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <MarketingConsentBanner />
         </LanguageProvider>
       </body>
     </html>
