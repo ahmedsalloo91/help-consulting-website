@@ -23,6 +23,7 @@ const englishMetadata: Metadata = {
 };
 
 async function getLocale() {
+  if ((await headers()).get("x-helpcast-page") === "true") return "ar";
   const saved = (await cookies()).get("help-language")?.value;
   const preferred = (await headers()).get("accept-language")?.split(",")[0] ?? "en";
   return saved === "ar" || (saved !== "en" && preferred.startsWith("ar")) ? "ar" : "en";
